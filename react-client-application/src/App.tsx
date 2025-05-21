@@ -3,7 +3,8 @@ import './App.css'
 function App() {
     return (
         <>
-            <HeaderApp />
+            <HeaderApp title='hi' />
+            <HeaderApp title='yeepe' myColor='yellow' />
         </>
     )
 }
@@ -11,6 +12,7 @@ function App() {
 export default App
 
 
-function HeaderApp(props: { title: string, myColor: string }) {
-    return <h1> New React Application </h1>
+function HeaderApp(props:
+    { title: string, myColor?: string }) {
+    return <h1 style={{ color: props.myColor }} >{props.title} </h1>
 }
