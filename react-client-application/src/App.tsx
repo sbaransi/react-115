@@ -1,18 +1,12 @@
 import './App.css'
+import CountriesPage from './components/pages/countries'
 
 function App() {
     return (
         <>
-            <HeaderApp title='hi' />
-            <HeaderApp title='yeepe' myColor='yellow' />
+            <CountriesPage />
         </>
     )
 }
-
 export default App
 
-
-function HeaderApp(props:
-    { title: string, myColor?: string }) {
-    return <h1 style={{ color: props.myColor }} >{props.title} </h1>
-}
