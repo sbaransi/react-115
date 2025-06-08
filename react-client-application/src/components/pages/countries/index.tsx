@@ -3,6 +3,8 @@ import data from "../../../data/data.json"
 import { CardApp } from "../../card"
 import HeaderApp from "../../header-app"
 import { AppTheme, getStyleByTheme, ThemeSettings } from "../../theme-app"
+import { AddCountry } from "./add-country"
+
 
 
 export default function CountriesPage() {
@@ -10,8 +12,17 @@ export default function CountriesPage() {
     const [countryNameFilter, setCountryNameFilter] = useState<string>("")
     const [theme, setTheme] = useState<AppTheme>(AppTheme.Light)
 
+
+    function addCountryHandler(country: any) {
+        setCountriesArray([country, ...countriesArray])
+    }
+
+
+
     return <div style={getStyleByTheme(theme)}>
+
         <ThemeSettings theme={theme} setTheme={setTheme} />
+        <AddCountry handler={addCountryHandler} />
         <HeaderApp title="countries - United" myColor="red" />
         <input onChange={(e) => {
             setCountryNameFilter(e?.target.value)
