@@ -21,3 +21,37 @@ each component will have her own folder + tsx file.
 - The page will show Table of users
 - the users will be added dynamically to the table by using a form
 - the form will contain, firstName, lastName, email, phone
+
+# EX 2
+
+convert the following global CSS to style.module.css ( local per component, UsersTable.tsx)
+
+```css
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td,
+#customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#customers tr:hover {
+  background-color: #ddd;
+}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04aa6d;
+  color: white;
+}
+```

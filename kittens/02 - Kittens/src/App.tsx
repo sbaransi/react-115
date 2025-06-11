@@ -11,6 +11,7 @@ function App() {
         const now = new Date();
         const day = now.getDay() + 1;
         return day >= 6;
+
     }
 
     return (
@@ -18,9 +19,9 @@ function App() {
 
             <h1>Welcome to Kittens Shelter</h1>
 
-            { isWeekend() ? <p>Only now - on weekend - 20% discount on all kittens!</p> : null }
+            {isWeekend() ? <p>Only now - on weekend - 20% discount on all kittens!</p> : null}
 
-            { isWeekend() && <p>Only now - on weekend - children fun with animals!</p> }
+            {isWeekend() ? <p>Only now - on weekend - children fun with animals!</p> : null}
 
             <hr />
 
@@ -29,7 +30,7 @@ function App() {
             <Kitten name="Hertzel" age={5} imageSource={kitten3Source} />
 
             <Copyrights />
-            
+
         </div>
     );
 }
