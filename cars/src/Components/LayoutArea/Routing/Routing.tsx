@@ -9,9 +9,9 @@ import "./Routing.css";
 export function Routing(): JSX.Element {
     return (
         <div className="Routing">
-			<Routes>
+            <Routes>
                 <Route path="/" element={<Navigate to="/home" />} />
-                <Route path="/home" element={<Home />} />
+                <Route path="/home" element={<ThisIsNewComponent />} />
                 <Route path="/cars" element={<Cars />} />
                 <Route path="/sales-and-discount" element={<Sales />} />
                 <Route path="/about-us" element={<About />} />
@@ -19,4 +19,12 @@ export function Routing(): JSX.Element {
             </Routes>
         </div>
     );
+}
+
+
+function ThisIsNewComponent() {
+    return <div>
+        <h1>My new routing app</h1>
+        <div> test</div>
+    </div>
 }
