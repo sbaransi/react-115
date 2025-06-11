@@ -1,8 +1,9 @@
-import type { User } from "."
+import type { User } from ".."
+import css from "./usersTable.module.css"
 
 export function UsersTable(props: { usersArray: Array<User> }) {
     return <div>
-        <table id="customers">
+        <table className={css.generalTable}>
             <tr>
                 <th>First Name</th>
                 <th>Last Name</th>

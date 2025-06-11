@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { AddUser } from "./add-user"
 import { UsersTable } from "./users-table"
+import css from "./index.module.css"
 
 
 export type User = { userName: string, userLastName: string, userEmail: string, userPhone: string }
@@ -16,7 +17,9 @@ export default function UsersPage() {
             is this has background?
         </div>
         <UsersTable usersArray={users} />
-
+        <div className={css.generalTable}>
+            Eytan?
+        </div>
     </div >
 }
 
