@@ -12,7 +12,6 @@ export default function CountriesPage() {
     const [countryNameFilter, setCountryNameFilter] = useState<string>("")
     const [theme, setTheme] = useState<AppTheme>(AppTheme.Light)
 
-
     function addCountryHandler(country: any) {
         setCountriesArray([...countriesArray, country])
     }
