@@ -14,7 +14,7 @@ export default function CountriesPage() {
 
 
     function addCountryHandler(country: any) {
-        setCountriesArray([country, ...countriesArray])
+        setCountriesArray([...countriesArray, country])
     }
 
 
