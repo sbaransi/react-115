@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const crypto = require("crypto");
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 5000;
 
 // Enable CORS for all origins
 app.use(cors());
@@ -29,7 +29,7 @@ app.get("/health-check", (req, res) => {
   res.send("Api is running ");
 });
 // POST /register
-app.post("/register", (req, res) => {
+app.post("/register", function (req, res) {
   const err = validate(
     ["userName", "password", "firstName", "lastName"],
     req.body
@@ -43,7 +43,20 @@ app.post("/register", (req, res) => {
   }
 
   users.push({ userName, password, firstName, lastName });
-  return res.json({ message: "User registered successfully." });
+  setTimeout(() => {
+    return res.json({ message: "User registered successfully." });
+  }, 2000);
+});
+
+app.get("/delay", async (req, res, next) => {
+  try {
+    console.log("test.,..");
+    setTimeout(() => {
+      return res.json({});
+    }, 2000);
+  } catch (error) {
+    return next(error);
+  }
 });
 
 // POST /login

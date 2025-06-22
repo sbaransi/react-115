@@ -20,3 +20,7 @@
 
 6. convert the Registration form to use `useRef`
 7. clone the reposiroty, run `npm install` inside nodejs.api and run `npm start`
+
+8. implement login with the new api
+   /login POST {userName:"bla", password:"blabla"}
+   if the login succeeded navigate to home page.
