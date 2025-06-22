@@ -12,6 +12,8 @@ export default function RegisterPage() {
 
   const userNameRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
+  const firstNameRef = useRef<HTMLInputElement>(null);
+  const lastNamedRef = useRef<HTMLInputElement>(null);
 
   console.log(
     "This component render?",
@@ -25,22 +27,8 @@ export default function RegisterPage() {
       <form action="">
         <input type="text" placeholder="userName" ref={userNameRef} />
         <input type="text" placeholder="password" ref={passwordRef} />
-        <input
-          type="text"
-          placeholder="firstname"
-          value={firstName}
-          onChange={(e) => {
-            setFirstName(e.target.value);
-          }}
-        />
-        <input
-          type="text"
-          placeholder="lastName"
-          value={lastName}
-          onChange={(e) => {
-            setLastName(e.target.value);
-          }}
-        />
+        <input type="text" placeholder="firstname" ref={firstNameRef} />
+        <input type="text" placeholder="lastName" ref={lastNamedRef} />
         <button
           type="button"
           onClick={() => {

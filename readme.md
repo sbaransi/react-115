@@ -16,7 +16,7 @@
 2. Crete form, userName, password, firstName and LastName
 3. make input validation for userName and password - mandatory
 4. submitting the form will navigate to login
-5. navigate to register should be from the login page 
-
+5. navigate to register should be from the login page
 
 6. convert the Registration form to use `useRef`
+7. clone the reposiroty, run `npm install` inside nodejs.api and run `npm start`
