@@ -6,6 +6,7 @@ import { Sales } from "../../Pages/Sales/Sales";
 import { Page404 } from "../Page404/Page404";
 import "./Routing.css";
 import LoginPage from "../Login";
+import RegisterPage from "../Register";
 
 export function Routing(): JSX.Element {
   return (
@@ -17,6 +18,7 @@ export function Routing(): JSX.Element {
         <Route path="/sales" element={<Sales />} />
         <Route path="/about-us" element={<About />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
         <Route path="*" element={<Page404 />} />
       </Routes>
     </div>

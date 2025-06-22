@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
@@ -21,6 +22,12 @@ export default function LoginPage() {
       >
         Logout
       </button>
+
+      <div>
+        <NavLink to="/register">
+          <span>Dont have an account? Please register</span>
+        </NavLink>
+      </div>
     </div>
   );
 }
