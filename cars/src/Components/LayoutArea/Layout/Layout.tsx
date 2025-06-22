@@ -6,20 +6,20 @@ import { Routing } from "../Routing/Routing";
 import "./Layout.css";
 
 export function Layout(): JSX.Element {
-    return (
-        <div className="Layout">
-            <header>
-                <Header />
-            </header>
-            <aside>
-                <Menu />
-            </aside>
-            <main>
-                <Routing />
-            </main>
-            <footer>
-                <Copyrights />
-            </footer>
-        </div>
-    );
+  return (
+    <div className="Layout">
+      <header>
+        <Header />
+      </header>
+      <aside style={{ background: "green" }}>
+        <Menu />
+      </aside>
+      <main style={{ background: "red" }}>
+        <Routing />
+      </main>
+      <footer>
+        <Copyrights />
+      </footer>
+    </div>
+  );
 }
