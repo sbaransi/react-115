@@ -16,3 +16,4 @@
 2. Crete form, userName, password, firstName and LastName
 3. make input validation for userName and password - mandatory
 4. submitting the form will navigate to login
+5. navigate to register should be from the login page
