@@ -10,8 +10,8 @@ export default function RegisterPage() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
 
-  const userNameRef = useRef(null);
-  const passwordRef = useRef(null);
+  const userNameRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
 
   console.log(
     "This component render?",
@@ -45,14 +45,12 @@ export default function RegisterPage() {
           type="button"
           onClick={() => {
             if (userNameRef.current) {
-              // @ts-ignore
               if (userNameRef.current.value.length < 5) {
                 alert("User Name too short");
               }
             }
 
             if (passwordRef.current) {
-              // @ts-ignore
               console.log(passwordRef.current.value);
             }
           }}
