@@ -180,6 +180,7 @@ app.get("/cars", (req, res) => {
 });
 
 app.get("/sales", (req, res) => {
+  const input = req.query.input;
   const data = [
     {
       description: "2018 Toyota Corolla SE - Silver, 1.8L, Automatic",
@@ -207,12 +208,25 @@ app.get("/sales", (req, res) => {
       enDate: "2025-07-01",
     },
   ];
-
-  setTimeout(() => {
-    res.json({ data });
-  }, 2000);
+  if (!input) {
+    setTimeout(() => {
+      res.json({ data });
+    }, 2000);
+  } else {
+    const r = data.filter((s) => {
+      const m = getMonthFromDate(s.enDate);
+      console.log(m, input);
+      if (m == "0" + input) return s;
+    });
+    res.json({ data: r });
+  }
 });
 
+function getMonthFromDate(dateStr) {
+  const date = new Date(dateStr);
+  const month = date.getMonth() + 1; // getMonth() returns 0-11
+  return month.toString().padStart(2, "0"); // Ensure 2-digit format
+}
 // Start the server
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
