@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const crypto = require("crypto");
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 2200;
 
 // Enable CORS for all origins
 app.use(cors());

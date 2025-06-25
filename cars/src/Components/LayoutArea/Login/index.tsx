@@ -2,7 +2,7 @@ import axios from "axios";
 import { useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-const URL = "http://localhost:5000";
+const URL = "http://localhost:2200";
 
 export default function LoginPage() {
   const navigate = useNavigate();

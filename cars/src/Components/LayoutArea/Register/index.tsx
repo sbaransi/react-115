@@ -12,7 +12,7 @@ type UserPayload = {
 // useRef
 // direct full access to DOM
 // save value between renders ?
-const URL = "http://localhost:5000";
+const URL = "http://localhost:2200";
 export default function RegisterPage() {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
