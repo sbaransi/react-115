@@ -86,6 +86,83 @@ app.get("/me", (req, res) => {
   }
   res.json({ userName: sessions[token] });
 });
+app.get("/cars", (req, res) => {
+  const data = [
+    {
+      name: "Toyota Corolla (2022)",
+      type: "Sedan",
+      price: "$20,425–$28,710",
+      image:
+        "https://cdn.motortrend.com/uploads/2022/07/2022-toyota-corolla-sedan-feature.jpg",
+    },
+    {
+      name: "Honda Civic (2022)",
+      type: "Sedan",
+      price: "$21,165–$28,710",
+      image:
+        "https://cdn.motortrend.com/uploads/2021/10/2022-honda-civic-sedan-lx-touring.jpg",
+    },
+    {
+      name: "Ford F-150 (2023)",
+      type: "Truck",
+      price: "$35,000",
+      image:
+        "https://www.ford.com/cmslibs/content/dam/brand_ford/en_us/brand/trucks/f150/2023/collections/dm/23_ford_f150_ld_lunar.jpg",
+    },
+    {
+      name: "Chevrolet Tahoe (2023)",
+      type: "SUV",
+      price: "$50,000",
+      image:
+        "https://media.chevrolet.com/content/dam/chevrolet/na/us/english/index/vehicles/2023/suvs/tahoe/mov/01-images/2023-tahoe-gallery-01.jpg",
+    },
+    {
+      name: "Tesla Model 3 (2024)",
+      type: "Electric",
+      price: "$42,000",
+      image: "https://www.tesla.com/ns_videos/model-3-hero-desktop.jpg",
+    },
+    {
+      name: "BMW X5 (2023)",
+      type: "SUV",
+      price: "$65,000",
+      image:
+        "https://www.bmwusa.com/content/dam/bmwusa/x5/2023/BMW-MY23-X5-Gallery-Exterior-01.jpg",
+    },
+    {
+      name: "Mazda CX-5 (2023)",
+      type: "Crossover",
+      price: "$30,000",
+      image:
+        "https://www.mazdausa.com/siteassets/vehicle-assets/cx-5/2023/gallery/exterior/21CX5GT2-SoulRedCrystalMetallic-00002.jpg",
+    },
+    {
+      name: "Audi A4 (2023)",
+      type: "Sedan",
+      price: "$47,000",
+      image:
+        "https://www.audiusa.com/content/dam/nemo/us/models/a4/a4-sedan/my-2023/1920x1080-desktop-hero/a4-desktop-hero-1.jpg",
+    },
+    {
+      name: "Jeep Wrangler (2023)",
+      type: "Off-road",
+      price: "$38,000",
+      image:
+        "https://www.jeep.com/content/dam/fca-brands/na/jeep/en_us/2023/wrangler/gallery/exterior/2023-Jeep-Wrangler-Gallery-001.jpg",
+    },
+    {
+      name: "Hyundai Ioniq 5 (2023)",
+      type: "Electric",
+      price: "$45,000",
+      image:
+        "https://www.hyundaiusa.com/content/dam/hyundai/us/my2023/ioniq5/gallery/01-exterior/2023-ioniq5-symphony-silver-exterior-01_1920x1080.jpg",
+    },
+  ];
+
+  setTimeout(() => {
+    res.json({ data });
+  }, 2000);
+});
 
 app.get("/sales", (req, res) => {
   const data = [

@@ -1,18 +1,56 @@
+import axios from "axios";
 import "./Home.css";
+import { useEffect, useState } from "react";
+import { render } from "@testing-library/react";
+let renders = 0;
+const URL = "http://localhost:2200";
 
 export function Home(): JSX.Element {
+  const [isSalesLoading, setIsSalesLoading] = useState<boolean>(false);
+  const [sales, setSales] = useState<{
+    description: string;
+    price: string;
+    endDate: string;
+    // @ts-ignore
+  }>([]);
+  // lifecycle
+  // mounted
+  renders++;
+  console.log("Render component...", renders);
+
+  useEffect(() => {
+    getSales();
+    return () => {};
+  }, []);
+
+  async function getSales() {
+    try {
+      setIsSalesLoading(true);
+      const result = await axios.get(`${URL}/sales`);
+      setSales(result?.data?.data);
+    } catch (error) {
+      alert("Something went wrong");
+    } finally {
+      setIsSalesLoading(false);
+    }
+  }
+
   return (
     <div className="Home">
       <h1> Home</h1>
+
       <button
         onClick={() => {
-          // Call The new API, in the best way you think of!
+          getSales();
         }}
       >
-        {" "}
-        Get data?{" "}
+        Get data?
       </button>
-      <div>{/* print it to console.log or here */}</div>
+      {isSalesLoading ? (
+        <h2>Loading...</h2>
+      ) : (
+        <div>{JSON.stringify(sales)}</div>
+      )}
     </div>
   );
 }
