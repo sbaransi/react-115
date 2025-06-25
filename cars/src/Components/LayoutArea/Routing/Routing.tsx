@@ -13,7 +13,7 @@ export function Routing(): JSX.Element {
     <div className="Routing">
       <Routes>
         <Route path="/" element={<AmIAuthenticate />} />
-        <Route path="/home" element={<ThisIsNewComponent />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/cars" element={<Cars />} />
         <Route path="/sales" element={<Sales />} />
         <Route path="/about-us" element={<About />} />
@@ -21,15 +21,6 @@ export function Routing(): JSX.Element {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="*" element={<Page404 />} />
       </Routes>
-    </div>
-  );
-}
-
-function ThisIsNewComponent() {
-  return (
-    <div>
-      <h1>Home</h1>
-      <h2> Home page please visit us on: URL </h2>
     </div>
   );
 }

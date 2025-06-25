@@ -87,6 +87,40 @@ app.get("/me", (req, res) => {
   res.json({ userName: sessions[token] });
 });
 
+app.get("/sales", (req, res) => {
+  const data = [
+    {
+      description: "2018 Toyota Corolla SE - Silver, 1.8L, Automatic",
+      price: "$13,500",
+      enDate: "2025-06-30",
+    },
+    {
+      description: "2020 Honda Civic LX - Blue, 2.0L, Manual",
+      price: "$15,900",
+      enDate: "2025-07-15",
+    },
+    {
+      description: "2019 Ford Escape Titanium - White, AWD, 1.5L EcoBoost",
+      price: "$18,250",
+      enDate: "2025-07-05",
+    },
+    {
+      description: "2021 Mazda CX-5 Touring - Red, 2.5L, Automatic",
+      price: "$22,700",
+      enDate: "2025-06-28",
+    },
+    {
+      description: "2017 BMW 320i xDrive - Black, Turbocharged, AWD",
+      price: "$20,300",
+      enDate: "2025-07-01",
+    },
+  ];
+
+  setTimeout(() => {
+    res.json({ data });
+  }, 2000);
+});
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
