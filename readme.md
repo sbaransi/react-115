@@ -28,3 +28,9 @@
 # 25-6-2025
 
 1. use /cars GET request to recieve cars to the Cars routing page on page loading
+2. implement sales filters
+
+```html
+<button>This Month Sales</button>
+<button>All Sales</button>
+```
