@@ -31,6 +31,12 @@
 2. implement sales filters
 
 ```html
-<button>This Month Sales</button>
-<button>All Sales</button>
+<button>This Month Sales</button> <button>All Sales</button>
 ```
+
+# 29-6-2025
+
+1. In Cars Page
+2. Show in piechart the types and number of cars for each type - https://recharts.org/en-US
+   Electric - 2, Sedan - 1 , Crossover - 1
+3. use useMemo to memoize this calculation
