@@ -45,4 +45,13 @@
 
 ## Ex-2
 
-1. Apply useCallback in registration page
+1. Apply useCallback in registration page - `registerAction`
+
+
+## Ex-3
+
+1. Support New Route - Add new car.
+2. Support the form inputs, name, type, price, image
+3. support button - add new car
+4. when clicking the button - make post request to the following API: POST /cars { name, type, price, image }
+4. move to cars page to make sure the additional car added successfully 

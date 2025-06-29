@@ -167,7 +167,7 @@ app.post("/cars", (req, res) => {
     return res.status(400).send("missing inputs");
 
   data.push({ name, type, price, image });
-  return res.json({ message: " added successfully!" });
+  return res.json({ message: "added successfully!" });
 });
 app.get("/cars", (req, res) => {
   random++;
