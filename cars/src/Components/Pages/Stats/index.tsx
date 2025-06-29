@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 const URL = "http://localhost:2200";
 
 export function SalesStatistics(): JSX.Element {
@@ -7,8 +7,8 @@ export function SalesStatistics(): JSX.Element {
     const [inputState, setInputState] = useState<string>("");
 
     console.log("Do we have rendering?")
-    const [description, setDescription] = useState('');
-    const [price, setPrice] = useState('');
+    const [description, setDescription] = useState('initial description');
+    const [price, setPrice] = useState(0);
     const [endDate, setEndDate] = useState('');
     const [sales, setSales] = useState<
         {
@@ -18,31 +18,27 @@ export function SalesStatistics(): JSX.Element {
         }[]
     >([]);
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
 
+
+    const handleSubmitCB = useCallback((e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
         const newSale = {
             description,
             price: `$${price}`,
             endDate
         };
-
         setSales([...sales, newSale]);
 
         // Clear form inputs
         setDescription('');
-        setPrice('');
+        setPrice(0);
         setEndDate('');
-    };
-
-
-
+    }, [description, price, endDate, sales])
 
     useEffect(() => {
         getSales();
         return () => { };
     }, []);
-
     async function getSales() {
         try {
             setIsSalesLoading(true);
@@ -54,7 +50,6 @@ export function SalesStatistics(): JSX.Element {
             setIsSalesLoading(false);
         }
     }
-
     function calcSalesAvg(sales: Array<{
         description: string;
         price: string;
@@ -69,16 +64,15 @@ export function SalesStatistics(): JSX.Element {
         })
         return (sum / sales.length).toFixed(2)
     }
-
-    // const avg = calcSalesAvg(sales)
     const memoizedAvg = useMemo(() => { return calcSalesAvg(sales) }, [sales])
+
     return (
         <div >
             <h1> Statistics</h1>
             <div>
                 <div>
                     <h2>Add Sale</h2>
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmitCB}>
                         <div>
                             <label>Description:</label>
                             <input
@@ -90,9 +84,9 @@ export function SalesStatistics(): JSX.Element {
                         <div>
                             <label>Price:</label>
                             <input
-                                type="text"
+                                type="number"
                                 value={price}
-                                onChange={(e) => setPrice(e.target.value)}
+                                onChange={(e) => setPrice(parseInt(e.target.value))}
                             />
                         </div>
                         <div>
@@ -105,9 +99,6 @@ export function SalesStatistics(): JSX.Element {
                         </div>
                         <button type="submit">Add Sale</button>
                     </form>
-
-
-
                 </div>
             </div>
             <div style={{ display: "flex", gap: 10 }}>
@@ -117,7 +108,7 @@ export function SalesStatistics(): JSX.Element {
                     }} type="text" placeholder="filter..." />
                     <span> Your new filter: {inputState} </span>
                     <div>
-                        {sales.map(s => { return <div key={s.description}> {s.endDate}</div> })}
+                        {sales.map(s => { return <div key={s.description}> {s.description}</div> })}
                     </div>
                 </div>
                 <div>

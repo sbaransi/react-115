@@ -2,8 +2,10 @@ import axios from "axios";
 import "./Cars.css";
 import { useEffect, useMemo, useState } from "react";
 import debounce from "lodash/debounce";
+
 const URL = "http://localhost:2200";
 console.log(debounce);
+type Car = { name: string; price: string; type: string };
 export function Cars(): JSX.Element {
     const [isCarsLoading, setIsCarsLoading] = useState<boolean>(false);
     const [cars, setCars] = useState([]);
@@ -46,12 +48,31 @@ export function Cars(): JSX.Element {
     const handleChange = (event: any) => {
         debouncedSetSearch(event.target.value);
     };
+
+    function calcCarsTypes(cars: Array<Car>) {
+        if (!Array.isArray(cars)) return;
+        const result: { [key: string]: number } = cars.reduce((statsResult, currentCar) => {
+            const currentType = currentCar.type;
+            if (statsResult[currentType]) {
+                statsResult[currentType]++;
+            } else {
+                statsResult[currentType] = 1
+            }
+            return statsResult
+        }, {} as { [key: string]: number })
+        return result;
+    }
+    const heavyCalculation = useMemo(() => calcCarsTypes(cars), [cars])
+
     return (
         <div className="Cars">
             <h1>Cars</h1>
             <div>
                 <input type="text" onChange={handleChange} placeholder="Search..." />
                 {/* <input type="text" onChange={handleChange} /> */}
+            </div>
+            <div>
+                {isCarsLoading ? <h2>Loading...</h2> : JSON.stringify(heavyCalculation)}
             </div>
             <div>
                 {isCarsLoading ? (
@@ -65,7 +86,7 @@ export function Cars(): JSX.Element {
                             gap: 3,
                         }}
                     >
-                        {cars?.map((c: { name: string; price: string; type: string }) => {
+                        {cars?.map((c: Car) => {
                             return (
                                 <div style={{ border: "1px solid black" }}>
                                     <h2>{c.name}</h2>

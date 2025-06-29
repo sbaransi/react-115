@@ -36,7 +36,13 @@
 
 # 29-6-2025
 
+## Ex-1
+
 1. In Cars Page
 2. Show in piechart the types and number of cars for each type - https://recharts.org/en-US
    Electric - 2, Sedan - 1 , Crossover - 1
 3. use useMemo to memoize this calculation
+
+## Ex-2
+
+1. Apply useCallback in registration page
