@@ -86,7 +86,7 @@ app.get("/me", (req, res) => {
   }
   res.json({ userName: sessions[token] });
 });
-const data = [
+let data = [
   {
     name: "Toyota Corolla (2022)",
     type: "Sedan",
@@ -161,6 +161,14 @@ const data = [
 const shortRequest = 1000;
 const longRequest = 4000;
 let random = 0;
+app.post("/cars", (req, res) => {
+  const { name, type, price, image } = req.body;
+  if (!name || !type || !price || !image)
+    return res.status(400).send("missing inputs");
+
+  data.push({ name, type, price, image });
+  return res.json({ message: " added successfully!" });
+});
 app.get("/cars", (req, res) => {
   random++;
   const time = random % 2 === 0 ? shortRequest : longRequest;
