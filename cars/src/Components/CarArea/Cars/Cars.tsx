@@ -2,6 +2,8 @@ import axios from "axios";
 import "./Cars.css";
 import { useEffect, useMemo, useState } from "react";
 import debounce from "lodash/debounce";
+import { PieChart, Pie, Tooltip } from 'recharts';
+
 
 const URL = "http://localhost:2200";
 console.log(debounce);
@@ -63,7 +65,9 @@ export function Cars(): JSX.Element {
         return result;
     }
     const heavyCalculation = useMemo(() => calcCarsTypes(cars), [cars])
-
+    const adaptData = Object.entries(heavyCalculation as {}).map(item => {
+        return { name: item[0], value: item[1] }
+    })
     return (
         <div className="Cars">
             <h1>Cars</h1>
@@ -98,6 +102,23 @@ export function Cars(): JSX.Element {
                     </div>
                 )}
             </div>
+
+
+            <PieChart width={600} height={500}>
+                <Pie
+                    dataKey="value"
+                    isAnimationActive={true}
+                    data={adaptData}
+                    cx="50%"
+                    cy="50%"
+                    outerRadius={120}
+                    fill="#8884d8"
+                    label
+                />
+                <Tooltip />
+            </PieChart>
+
+
         </div>
     );
 }
