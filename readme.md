@@ -55,5 +55,3 @@
 3. support button - add new car
 4. when clicking the button - make post request to the following API: POST /cars { name, type, price, image }
 4. move to cars page to make sure the additional car added successfully 
-
-?
