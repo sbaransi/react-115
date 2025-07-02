@@ -4,12 +4,15 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { ThemeContext } from './context/themeContext'
 import { CounterProvider } from './context/counterContext'
+import Header from './components/header'
+import ProductList from './components/productList'
 
 function App() {
     const context = useContext(ThemeContext)
     return (
         <>
-
+            <Header cartCount={0} />
+            <ProductList />
             <div style={{ background: context.theme as string }}>
                 <Parent />
             </div>
@@ -42,9 +45,9 @@ function Child() {
         </div>
         <h1>Vite + React</h1>
         <div className="card">
-            <button onClick={() => setCount((count) => count + 1)}>
+            {/* <button onClick={() => setCount((count) => count + 1)}>
                 count is {count}
-            </button>
+            </button> */}
             <p>
                 Edit <code>src/App.tsx</code> and save to test HMR
             </p>
