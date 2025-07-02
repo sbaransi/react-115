@@ -20,6 +20,7 @@ const DetailWrapper = styled.div`
 const UserDetail: React.FC = () => {
     const { userId } = useParams<{ userId: string }>();
     const [user, setUser] = useState<User | null>(null);
+    
 
     useEffect(() => {
         axios.get(`https://jsonplaceholder.typicode.com/users/${userId}`).then((response: any) => {
@@ -29,6 +30,7 @@ const UserDetail: React.FC = () => {
 
     return (
         <DetailWrapper theme="light">
+            <h2> Eitan this is the same page...</h2>
             {user ? (
                 <>
                     <h2>{user.name}</h2>
