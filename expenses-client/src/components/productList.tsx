@@ -2,7 +2,7 @@
 import React, { useContext } from 'react';
 import './productList.css';
 import { CartContext, type Product } from '../context/cartContext';
-
+import { ProductCard } from './productCard';
 
 
 const products: Product[] = [
@@ -19,26 +19,12 @@ const ProductList: React.FC = () => {
     return (
         <div className="product-list">
             {products.map((product) => (
-                <ProductCart key={product.id} {...product} sendP={"kalimi"} />
+                <ProductCard key={product.id} {...product} sendP={context.addToCart} />
             ))}
         </div>
     );
 };
 
-const ProductCart: any = (props: any) => {
-    const { id, image, name, price } = props;
-    const isCallbackFn = (typeof props.sendP === 'function')
-    return <>
-        <div key={id} className="product-card">
-            <img src={image} alt={name} />
-            <h2>{name}</h2>
-            <p>{price}</p>
-            {isCallbackFn && <button onClick={() => {
-                if (typeof props.sendP === 'function') {
-                    props.sendP({ id, image, name, price })
-                }
-            }} className="add-to-cart-btn">Add to Cart</button>}
-        </div></>
-}
+
 
 export default ProductList;
