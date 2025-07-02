@@ -26,6 +26,7 @@ function Parent() {
         </CounterProvider>
     </>
 }
+console.log("?")
 
 function Child() {
     const context = useContext(ThemeContext)
