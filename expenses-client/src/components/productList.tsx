@@ -1,13 +1,9 @@
 // ProductList.tsx
-import React from 'react';
+import React, { useContext } from 'react';
 import './productList.css';
+import { CartContext, type Product } from '../context/cartContext';
 
-interface Product {
-    id: number;
-    name: string;
-    price: string;
-    image: string;
-}
+
 
 const products: Product[] = [
     { id: 1, name: 'Product 1', price: '$10.00', image: 'https://via.placeholder.com/150' },
@@ -18,18 +14,31 @@ const products: Product[] = [
 ];
 
 const ProductList: React.FC = () => {
+    const context = useContext(CartContext)
+
     return (
         <div className="product-list">
             {products.map((product) => (
-                <div key={product.id} className="product-card">
-                    <img src={product.image} alt={product.name} />
-                    <h2>{product.name}</h2>
-                    <p>{product.price}</p>
-                    <button className="add-to-cart-btn">Add to Cart</button>
-                </div>
+                <ProductCart key={product.id} {...product} sendP={"kalimi"} />
             ))}
         </div>
     );
 };
+
+const ProductCart: any = (props: any) => {
+    const { id, image, name, price } = props;
+    const isCallbackFn = (typeof props.sendP === 'function')
+    return <>
+        <div key={id} className="product-card">
+            <img src={image} alt={name} />
+            <h2>{name}</h2>
+            <p>{price}</p>
+            {isCallbackFn && <button onClick={() => {
+                if (typeof props.sendP === 'function') {
+                    props.sendP({ id, image, name, price })
+                }
+            }} className="add-to-cart-btn">Add to Cart</button>}
+        </div></>
+}
 
 export default ProductList;

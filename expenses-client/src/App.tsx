@@ -6,12 +6,14 @@ import { ThemeContext } from './context/themeContext'
 import { CounterContext, CounterProvider } from './context/counterContext'
 import Header from './components/header'
 import ProductList from './components/productList'
+import { CartContext } from './context/cartContext'
 
 function App() {
     const context = useContext(ThemeContext)
+    const cartContext = useContext(CartContext)
     return (
         <>
-            <Header cartCount={0} />
+            <Header cartCount={cartContext.cart.length} />
             <ProductList />
             <div style={{ background: context.theme as string }}>
                 <Parent />
@@ -19,6 +21,7 @@ function App() {
             <div style={{ background: context.theme as string }}>
                 <Parent />
             </div>
+
         </>
     )
 }
@@ -46,7 +49,7 @@ function Child() {
         <h1>Vite + React</h1>
         <div className="card">
             <button onClick={() => contextCounter.increment()}>
-                count is {contextCounter.counter    }
+                count is {contextCounter.counter}
             </button>
             <p>
                 Edit <code>src/App.tsx</code> and save to test HMR

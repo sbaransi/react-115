@@ -47,14 +47,16 @@
 
 1. Apply useCallback in registration page - `registerAction`
 
-
 ## Ex-3
 
 1. Support New Route - Add new car.
 2. Support the form inputs, name, type, price, image
 3. support button - add new car
 4. when clicking the button - make post request to the following API: POST /cars { name, type, price, image }
-4. move to cars page to make sure the additional car added successfully 
+5. move to cars page to make sure the additional car added successfully
 
-test
-ttttttttest2
+# 2-7-2025
+
+1. explore the new page - cart + header + product lists
+2. create context provider which add every product into the cart
+3. the cart number of products will get update using the context
