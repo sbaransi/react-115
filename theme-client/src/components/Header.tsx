@@ -23,14 +23,20 @@ const Button = styled.button`
   }
 `;
 
+const Page = styled.div`
+    margin-left: 20px;
+`
+
 const Header: React.FC = () => {
     const { theme, toggleTheme } = useTheme();
 
     return (
-        <HeaderWrapper theme={theme}>
-            <h1>User Dashboard</h1>
-            <Button onClick={toggleTheme}>Toggle Theme</Button>
-        </HeaderWrapper>
+        <Page>
+            <HeaderWrapper theme={theme}>
+                <h1>User Dashboard</h1>
+                <Button onClick={toggleTheme}>Toggle Theme</Button>
+            </HeaderWrapper>
+        </Page>
     );
 };
 
