@@ -61,17 +61,20 @@
 2. create context provider which add every product into the cart
 3. the cart number of products will get update using the context
 
-
-
 # Homework - 4/7/2025
+
 1. Create new react applicaiton
-2. with the following routes: Flights 
+2. with the following routes: Flights
 3. Flights - use the Gov IL data api to show information
-https://data.gov.il/api/3/action/datastore_search?resource_id=e83f763b-b7d7-479e-b172-ae981ddc6de5&limit=5
+   https://data.gov.il/api/3/action/datastore_search?resource_id=e83f763b-b7d7-479e-b172-ae981ddc6de5&limit=5
 4. Train schedule - use the GOV IL data api
-https://data.gov.il/api/3/action/datastore_search?resource_id=1ebbbb91-1d44-4f41-a85c-4a93a35e32d6&limit=5
+   https://data.gov.il/api/3/action/datastore_search?resource_id=1ebbbb91-1d44-4f41-a85c-4a93a35e32d6&limit=5
 
 5. support pagination in each page, show the first 5 items and then give the option to show more, +5 each request ( maximum 50)
 
-
 Good luck
+
+# 06-07-2025
+
+1. Support showing all the hidden columns - clear the hidden column state
+2. Support cleaning the LS as well
