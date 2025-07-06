@@ -80,3 +80,15 @@ Good luck
 2. Support cleaning the LS as well
 
 3. Support new button for pagination only with Limit without offset
+
+
+# Homework 06-07-2025
+1. Add the following route - Search Car, add input for LP and search car with the query api from Gov.il data
+https://data.gov.il/api/3/action/datastore_search?resource_id=053cea08-09bc-40ec-8f7a-156f0677aff3&limit=5&q=5625265
+2. add the result details in a card
+3. add new route - אנטנות סלולריות פעילות
+4. the new route should contain Charts - 1 pie chart that shows for each city the number of antenna 
+for example tel-aviv - 1000 , haifa- 2400 etc..
+5. the second chart will show the companies and thier number of antenna for example
+celcom-200 partner-100 etc..
+6. add filter that shows the data according to the number of result (100,200,300)
