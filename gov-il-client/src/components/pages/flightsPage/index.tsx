@@ -5,6 +5,7 @@ import data from "../../../types_def/flight.json"
 import { useEffect, useState } from 'react';
 import { getFlightsApi, type FlightClient } from './service/getFlightsApi';
 import { extractColumnsFromData } from './utils';
+import { Alert, Button } from '@mui/material';
 // import { extractColumnsFromData } from './utils';
 
 export type FlightType = typeof data;
@@ -79,11 +80,19 @@ export default function FlightsPage() {
 
     }, [])
 
+    const resetColumnsSelection = () => {
+        localStorage.removeItem(LOCAL_STORAGE_HIDDEN_COLUMNS)
+        setColumnVisibilityModel({})
+    }
+    const showResetColumnsSelection = typeof columnVisibilityModel === "object" && Object.keys(columnVisibilityModel).length === 0
 
     return <div style={{ margin: "auto", position: "relative", width: "80%" }}>
-        <h1> Flights </h1>
+        <h1> Flights  </h1>
+        {!showResetColumnsSelection ? <Button onClick={resetColumnsSelection}> Reset Columns Selection </Button> : null}
+        {isErrorFlights ? <Alert severity="error">Something went wrong!</Alert> : null}
         <Box sx={{ height: 400, width: '100%' }}>
             <DataGrid
+                loading={isLoadingFlights}
                 rows={flights}
                 columns={columns}
                 columnVisibilityModel={columnVisibilityModel}
@@ -94,11 +103,12 @@ export default function FlightsPage() {
                 initialState={{
                     pagination: {
                         paginationModel: {
-                            pageSize: 5,
+                            pageSize: 10,
+
                         },
                     },
                 }}
-                pageSizeOptions={[5]}
+                pageSizeOptions={[10]}
                 checkboxSelection
                 disableRowSelectionOnClick
             />

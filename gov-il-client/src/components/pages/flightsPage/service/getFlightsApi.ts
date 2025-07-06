@@ -1,6 +1,6 @@
 import axios from "axios"
 import type { FlightType } from ".."
-const url = "https://data.gov.il/api/3/action/datastore_search?resource_id=e83f763b-b7d7-479e-b172-ae981ddc6de5&limit=5"
+const url = "https://data.gov.il/api/3/action/datastore_search?resource_id=e83f763b-b7d7-479e-b172-ae981ddc6de5&limit=50"
 export type FlightClient = {
     id: number,
     flightNumber: string,

@@ -78,3 +78,5 @@ Good luck
 
 1. Support showing all the hidden columns - clear the hidden column state
 2. Support cleaning the LS as well
+
+3. Support new button for pagination only with Limit without offset
