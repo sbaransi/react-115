@@ -1,6 +1,6 @@
 import axios from "axios"
 import type { FlightType } from ".."
-const url = "https://data.gov.il/api/3/action/datastore_search?resource_id=e83f763b-b7d7-479e-b172-ae981ddc6de5&limit=50"
+const url = "https://data.gov.il/api/3/action/datastore_search?resource_id=e83f763b-b7d7-479e-b172-ae981ddc6de5&limit"
 export type FlightClient = {
     id: number,
     flightNumber: string,
@@ -10,8 +10,8 @@ export type FlightClient = {
     destinationCountry: string,
     country: string
 }
-export async function getFlightsApi(): Promise<Array<FlightClient>> {
-    const result = await axios.get<{ result: { records: Array<FlightType> } }>(url)
+export async function getFlightsApi(paginationLimit: number): Promise<Array<FlightClient>> {
+    const result = await axios.get<{ result: { records: Array<FlightType> } }>(`${url}=${paginationLimit}`)
     const data = result?.data?.result?.records
     return data.map(item => {
         return {

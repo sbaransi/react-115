@@ -53,17 +53,19 @@ const columns: GridColDef<FlightClient>[] = [
 
 ];
 const LOCAL_STORAGE_HIDDEN_COLUMNS = "hiddenColumns"
+const INCREASE_LIMIT = 10
 export default function FlightsPage() {
     const [flights, setFlights] = useState<Array<FlightClient>>([])
     const [isLoadingFlights, setIsLoadingFlights] = useState(false)
     const [isErrorFlights, setIsErrorFlights] = useState(false)
     const [columnVisibilityModel, setColumnVisibilityModel] = useState(JSON.parse(localStorage.getItem(LOCAL_STORAGE_HIDDEN_COLUMNS) || "{}") || {})
+    const [paginationLimit, setPaginationLimit] = useState(INCREASE_LIMIT)
 
     useEffect(() => {
         async function getFlights() {
             try {
                 setIsLoadingFlights(true)
-                const result = await getFlightsApi()
+                const result = await getFlightsApi(paginationLimit)
                 // const columnsResult = extractColumnsFromData(result[0])
                 // setColumns(columnsResult as any)
                 setFlights(result)
@@ -74,11 +76,8 @@ export default function FlightsPage() {
                 setIsLoadingFlights(false)
             }
         }
-
         getFlights()
-
-
-    }, [])
+    }, [paginationLimit])
 
     const resetColumnsSelection = () => {
         localStorage.removeItem(LOCAL_STORAGE_HIDDEN_COLUMNS)
@@ -90,6 +89,7 @@ export default function FlightsPage() {
         <h1> Flights  </h1>
         {!showResetColumnsSelection ? <Button onClick={resetColumnsSelection}> Reset Columns Selection </Button> : null}
         {isErrorFlights ? <Alert severity="error">Something went wrong!</Alert> : null}
+        {<Button onClick={() => { setPaginationLimit(paginationLimit + INCREASE_LIMIT) }}> Load </Button>}
         <Box sx={{ height: 400, width: '100%' }}>
             <DataGrid
                 loading={isLoadingFlights}
@@ -108,7 +108,11 @@ export default function FlightsPage() {
                         },
                     },
                 }}
-                pageSizeOptions={[10]}
+                onPaginationModelChange={(a, b) => {
+                    console.log("call?", a, b)
+                }}
+                rowCount={1000}
+                pageSizeOptions={[10, 20]}
                 checkboxSelection
                 disableRowSelectionOnClick
             />
