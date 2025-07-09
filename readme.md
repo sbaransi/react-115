@@ -87,7 +87,7 @@ Good luck
 https://data.gov.il/api/3/action/datastore_search?resource_id=053cea08-09bc-40ec-8f7a-156f0677aff3&limit=5&q=5625265
 2. add the result details in a card
 3. add new route - אנטנות סלולריות פעילות
-4. the new route should contain Charts - 1 pie chart that shows for each city the number of antenna 
+4. the new route should contain Charts - 1 pie char t that shows for each city the number of antenna 
 for example tel-aviv - 1000 , haifa- 2400 etc..
 5. the second chart will show the companies and thier number of antenna for example
 celcom-200 partner-100 etc..
