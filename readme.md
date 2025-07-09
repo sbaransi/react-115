@@ -92,3 +92,12 @@ for example tel-aviv - 1000 , haifa- 2400 etc..
 5. the second chart will show the companies and thier number of antenna for example
 celcom-200 partner-100 etc..
 6. add filter that shows the data according to the number of result (100,200,300)
+
+
+
+
+
+
+# 9/7/2025
+1. support update model script for Cars
+2. consider using param OR updating all the models together
