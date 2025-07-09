@@ -1,5 +1,6 @@
 {
   "_id": 1,
+<<<<<<< HEAD
   "CHOPER": "AF",
   "CHFLTN": "7071",
   "CHOPERD": "AIR FRANCE",
@@ -12,9 +13,23 @@
   "CHLOC1T": "PARIS",
   "CHLOC1CH": "צרפת",
   "CHLOCCT": "FRANCE",
+=======
+  "CHOPER": "HY",
+  "CHFLTN": "303",
+  "CHOPERD": "UZBEKISTAN AIR",
+  "CHSTOL": "2025-07-08T18:45:00",
+  "CHPTOL": "2025-07-08T18:19:00",
+  "CHAORD": "A",
+  "CHLOC1": "TAS",
+  "CHLOC1D": "TASHKENT",
+  "CHLOC1TH": "טשקנט",
+  "CHLOC1T": "TASHKENT",
+  "CHLOC1CH": "אוזבקיסטן",
+  "CHLOCCT": "UZBEKISTAN",
+>>>>>>> 712eb7cdb693f57b321be111d8761e7d6c123bf9
   "CHTERM": 3,
-  "CHCINT": "78-99",
-  "CHCKZN": "D",
-  "CHRMINE": "DEPARTED",
-  "CHRMINH": "המריאה"
+  "CHCINT": null,
+  "CHCKZN": null,
+  "CHRMINE": "LANDED",
+  "CHRMINH": "נחתה"
 }
